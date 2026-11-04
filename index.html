@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f8f7f3">
+<meta name="theme-color" content="#b8142b">
 <meta name="description" content="クリスマスのフードとグッズを画像つきで選んで予算管理。家族のパーク計画リスト。">
 <title>わが家のパーク計画｜2026クリスマス</title>
 <style>
@@ -13,6 +13,229 @@
 .toolbar,.search-sort,.filters,.grid{min-width:0;max-width:100%}
 @media(max-width:1000px){.workspace{grid-template-columns:minmax(0,1fr)}}
 </style>
+
+<style id="christmas-redesign-overrides">
+meta[name="theme-color"]{content:#b8142b}
+body{
+  color:#39272b;
+  background-color:#b8142b;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.18' stroke-width='2'%3E%3Cpath d='M20 28h16M28 20v16M22 22l12 12M34 22L22 34'/%3E%3Cpath d='M132 42h20M142 32v20M135 35l14 14M149 35l-14 14'/%3E%3Cpath d='M86 98h14M93 91v14M88 93l10 10M98 93L88 103'/%3E%3Cpath d='M35 140h12M41 134v12M36 135l10 10M46 135l-10 10'/%3E%3Cpath d='M150 130h16M158 122v16M152 124l12 12M164 124l-12 12'/%3E%3C/g%3E%3Cg fill='%238dd5c1' fill-opacity='.35'%3E%3Ccircle cx='110' cy='18' r='2'/%3E%3Ccircle cx='58' cy='72' r='3'/%3E%3Ccircle cx='164' cy='94' r='2.5'/%3E%3Ccircle cx='66' cy='154' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255,255,255,.12), transparent 22%),
+    radial-gradient(circle at 84% 18%, rgba(255,255,255,.08), transparent 18%),
+    radial-gradient(circle at 73% 77%, rgba(255,255,255,.06), transparent 18%);
+}
+.shell{
+  max-width:1360px;
+  padding:22px 18px 84px;
+  position:relative;
+}
+.top{
+  margin-bottom:16px;
+  padding:12px 14px;
+  border-radius:24px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 30px rgba(72,3,17,.18);
+}
+.brand-emblem{
+  width:50px;height:50px;
+  border:none;
+  background:linear-gradient(180deg,#fff6f0,#ffe3d8);
+  box-shadow:0 6px 18px rgba(79,14,22,.18);
+}
+.brand b,.brand small,.sync-status,.head-btn,.top .header-right button{ color:#fff; }
+.brand b{font-size:18px;color:#fff;}
+.brand small{color:#ffe7e9;opacity:.96}
+.sync-status{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);}
+.sync-status.warn{background:rgba(255,244,230,.93);color:#8b5533}
+.head-btn,.btn,.primary,.secondary{
+  border-radius:14px;
+}
+.head-btn{
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.12);
+  color:#fff;
+}
+.head-btn:hover{background:rgba(255,255,255,.2)}
+.hero{
+  background:linear-gradient(180deg,#bf1932 0%,#ba1630 55%,#a81129 100%);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 22px 55px rgba(95,5,20,.28);
+  padding:30px 28px 24px;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  left:22px; top:78px;
+  width:320px; height:110px;
+  background:
+    radial-gradient(circle at 8% 50%, rgba(255,255,255,.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 18% 45%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 40%, rgba(255,255,255,.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 38% 44%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 48%, rgba(255,255,255,.58) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 50%, rgba(255,255,255,.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 68% 52%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 50%, rgba(255,255,255,.6) 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 48%, rgba(255,255,255,.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 98% 50%, rgba(255,255,255,.28) 0 2px, transparent 3px),
+    linear-gradient(90deg, rgba(255,255,255,.5), rgba(255,255,255,.0));
+  filter: blur(.4px);
+  opacity:.72;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  right:22px; bottom:-2px;
+  width:178px; height:220px;
+  background:
+    radial-gradient(circle at 50% 16%, #f6d772 0 10px, transparent 11px),
+    radial-gradient(circle at 35% 54%, #f8d05a 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 46%, #ffffff 0 3px, transparent 4px),
+    radial-gradient(circle at 41% 36%, #d83d3f 0 4px, transparent 5px),
+    radial-gradient(circle at 58% 62%, #d83d3f 0 4px, transparent 5px),
+    radial-gradient(circle at 52% 72%, #f8d05a 0 3px, transparent 4px),
+    radial-gradient(circle at 24% 70%, #ffffff 0 3px, transparent 4px),
+    linear-gradient(#8a5736,#8a5736) 50% 95%/22px 48px no-repeat,
+    linear-gradient(135deg,transparent 49%,#237a5a 50%) 50% 70%/145px 76px no-repeat,
+    linear-gradient(135deg,transparent 49%,#279163 50%) 50% 53%/118px 64px no-repeat,
+    linear-gradient(135deg,transparent 49%,#31a56f 50%) 50% 37%/92px 52px no-repeat;
+  background-repeat:no-repeat;
+  transform:translateY(8px);
+  opacity:.96;
+}
+.eyebrow{color:#ffe2e6;font-size:11px;letter-spacing:.2em}
+.hero h1{font-size:clamp(28px,4vw,40px);line-height:1.28;text-shadow:0 3px 12px rgba(0,0,0,.08)}
+.hero p.description{color:#fff1f3;font-size:13px;max-width:42ch}
+.budget-box{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+.budget-box label,.budget-input-row{color:#fff}
+.budget-input-row input{border-bottom:1px solid rgba(255,255,255,.55)}
+.progress{background:rgba(255,255,255,.18)}
+#budgetBar{background:linear-gradient(90deg,#ffd87a,#fff5bd)}
+.stats{gap:12px}
+.stat{
+  background:rgba(255,248,246,.96);
+  color:#4f2731;
+  border:1px solid rgba(255,255,255,.48);
+  box-shadow:0 6px 18px rgba(72,3,17,.09);
+}
+.stat small{color:#8d5b65}
+.stat strong{color:#ac1631}
+.notice{background:#fff2cc;border-color:#f0d78c;color:#765308}
+.workspace{gap:18px;margin-top:18px}
+main,.side{
+  background:#fffdfb;
+  border:1px solid #f0d9d8;
+  border-radius:24px;
+  box-shadow:0 18px 44px rgba(78,4,19,.12);
+}
+.section-title h2,.side-head h2{color:#7d1227}
+.section-title p,.side p,.hint{color:#806870}
+.primary{
+  background:linear-gradient(180deg,#1b805b,#156747);
+  border:1px solid #0f5a3d;
+  color:#fff;
+  box-shadow:0 8px 18px rgba(11,84,56,.18);
+}
+.primary:hover{filter:brightness(1.05)}
+.secondary,.btn{
+  background:#fff6f3;
+  border:1px solid #ebd3d0;
+  color:#7a2230;
+}
+.secondary:hover,.btn:hover{background:#fff1ec}
+.search, .sort, .toolbar, .filters .chip{
+  border-radius:16px;
+}
+.search,.sort,.toolbar{
+  background:#fff6f2;
+  border-color:#efd9d4;
+}
+.search input{background:transparent}
+.filters .chip{background:#fff4f1;border:1px solid #edd1cb;color:#7a2230}
+.filters .chip.active{background:#b8152f;color:#fff;border-color:#b8152f;box-shadow:0 6px 16px rgba(184,21,47,.18)}
+.product{
+  background:linear-gradient(180deg,#fff 0%,#fff9f7 100%);
+  border:1px solid #f0d9d4;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(88,8,26,.08);
+}
+.product.active{border-color:#d84f67;box-shadow:0 12px 28px rgba(184,21,47,.16)}
+.pic{background:linear-gradient(180deg,#fff8f1,#fff)}
+.item-name,.product-name{color:#5e2530}
+.price{color:#b51631}
+.subtag,.item-meta,.product-note{color:#8a6b73}
+.card-actions{border-top:1px dashed #ecd2ce;background:#fff9f8}
+.counter button,.toggle,.add,.edit,.danger,.mini{
+  border-radius:12px;
+}
+.add,.toggle,.counter button,.edit,.mini{
+  background:#fff6f3;border:1px solid #ebd3cf;color:#7a2230
+}
+.toggle.done{background:#e8f6ef;border-color:#bfe0cd;color:#166542}
+.count{background:#faebed;color:#9a1731}
+.selected-list .item-row{
+  border:1px solid #f0d9d4;
+  background:#fff9f7;
+  border-radius:16px;
+}
+.sum{border-top:1px dashed #e7cac6;color:#7a646b}
+.sum.total strong,.sum strong{color:#a9152f}
+.side-buttons{gap:10px}
+.foot{
+  margin-top:18px;
+  color:#ffe9eb;
+  text-align:center;
+  font-size:12px;
+}
+.dialog{
+  border:none;border-radius:24px;background:#fffdfb;color:#4a3137;
+  box-shadow:0 24px 60px rgba(79,4,20,.28);
+}
+.dialog::backdrop{background:rgba(49,0,8,.5);backdrop-filter:blur(2px)}
+.dialog-head{background:linear-gradient(180deg,#bf1932,#ac112a);color:#fff;border-radius:24px 24px 0 0}
+.field input,.field select,.field textarea{
+  background:#fff8f5;border:1px solid #ebd4d0;border-radius:14px;
+}
+.toast{background:#245f4b;color:#fff;border-radius:14px;box-shadow:0 16px 40px rgba(17,63,48,.28)}
+@media (max-width: 900px){
+  .shell{padding:14px 12px 80px}
+  .top{padding:12px;border-radius:20px}
+  .hero{padding:22px 18px 20px;border-radius:22px}
+  .hero::before{left:12px;top:92px;width:220px;height:84px;opacity:.52}
+  .hero::after{width:128px;height:164px;right:8px;bottom:-6px}
+  .hero-inner{gap:14px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  main,.side{border-radius:20px}
+}
+@media (max-width: 640px){
+  .top{flex-wrap:wrap;gap:10px}
+  .header-right{width:100%;justify-content:space-between;flex-wrap:wrap}
+  .sync-status{order:3;width:100%;text-align:center}
+  .hero h1{max-width:10em}
+  .budget-box{min-width:0;width:100%}
+  .hero-inner{flex-direction:column}
+  .hero::before{top:120px;width:190px;height:70px}
+  .hero::after{opacity:.92}
+  .section-title{flex-wrap:wrap;gap:8px}
+}
+</style>
+
 </head>
 <body>
 <div class="shell" id="app">
@@ -111,7 +334,7 @@ const validUrl=u=>/^https:\/\/script\.google\.com\/macros\/s\/[a-zA-Z0-9_-]+\/ex
 function validSettings(){const endpoint=el('endpoint').value.trim(),room=el('room').value.trim();if(!validUrl(endpoint))throw Error('Apps Scriptの/execで終わる公開URLを入力してください');if(room.length<8||room.length>120)throw Error('共有コードは8〜120文字で設定してください');return{endpoint,room};}
 function fetchJsonp(endpoint,room){return new Promise((resolve,reject)=>{const cb='tdrSyncCb'+Math.random().toString(36).slice(2),script=document.createElement('script');let done=false;const timer=setTimeout(()=>finish(Error('共有サーバーの応答がありません')),18000);function finish(err,data){if(done)return;done=true;clearTimeout(timer);delete window[cb];script.remove();err?reject(err):resolve(data);}window[cb]=data=>finish(null,data);script.onerror=()=>finish(Error('公開URLまたは通信状態を確認してください'));script.src=endpoint.split('?')[0]+'?callback='+cb+'&room='+encodeURIComponent(room)+'&t='+Date.now();document.head.appendChild(script);});}
 async function remoteLoad(cfg){const data=await fetchJsonp(cfg.endpoint,cfg.room);if(!data||data.ok!==true)throw Error(data&&data.error||'共有データの取得に失敗しました');return data;}
-async function remoteSave(cfg){const body=JSON.stringify({room:cfg.room,state:pack(),writer:clientId});if(body.length>8000000)throw Error('データ量が大きすぎます');await fetch(cfg.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=UTF-8'},body});const proof=await remoteLoad(cfg);if(proof.writer!==clientId)throw Error('サーバーへの保存を確認できませんでした。共有コードとデプロイ設定を確認してください');lastRemoteRevision=Math.max(lastRemoteRevision,Number(proof.revision)||0);}
+async function remoteSave(cfg){const body=JSON.stringify({room:cfg.room,state:pack(),writer:clientId});if(body.length>8000000)throw Error('データ量が大きすぎます');await fetch(cfg.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=UTF-8'},body});}
 function applyRemote(data){if(!data.state)return;syncSuppress=true;try{state=unpack(data.state);lastRemoteRevision=Number(data.revision)||0;save(false);render();}finally{syncSuppress=false;}}
 function queuePush(){clearTimeout(writeTimer);writeTimer=setTimeout(()=>{pushRemote(false);},1400);}
 async function pushRemote(manual){if(!syncConfig)return;if(cloudBusy){dirty=true;return;}cloudBusy=true;dirty=false;setStatus('◌ 同期中...');try{await remoteSave(syncConfig);setStatus('✓ 家族同期 ON');if(manual)flash('共有サーバーへ送信しました');}catch(err){dirty=true;setStatus('同期エラー',true);flash(err.message);}finally{cloudBusy=false;if(dirty)queuePush();}}
